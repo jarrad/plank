@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="./assets/favicon.ico">
+    <title>Plank | Backbone+Bootstrap Dashboard</title>
+    <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./assets/style.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="./bower_components/html5shiv/dist/html5shiv.js"></script>
+      <script src="./bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <header id="nav"></header>
+    <div id="content"></div>
+
+    <div id="bm-templates">
+
+      <!-- left nav -->
+
+      <script type="text/html" id="MenuItemView-template">
+        <a href="<%= href %>" class="nav-left-item <%= active %>" data-target="<%= title %>">
+          <i class="fa fa-<%= icon %> fa-fw"></i> 
+          <span class="item"><%= title %></span>
+          <span class="badge pull-right"><%= badges %></span>
+        </a>
+      </script>
+
+      <script type="text/html" id="NavLayout-template">
+        <div class="brand"></div>
+        <div class="brand-icon"></div>
+        <div class="nav-left-content"></div>
+      </script>
+
+      <script type="text/html" id="BrandView-template">
+        <a href="#home"><%= appName %></a>
+      </script>
+      <script type="text/html" id="BrandIconView-template">
+        <i class="fa fa-<%= icon %> fa-fw"></i>
+      </script>
+
+      <!-- content -->
+      <script type="text/html" id="ContentLayout-template">
+        <div id="nav-content"></div>
+        <div id="main-content" class="container-fluid"></div>
+      </script>
+
+      <script type="text/html" id="NavbarHeaderLayout-template">
+        <div class="container-fluid">
+          <div id="nav-top-actions"></div>
+          <div id="nav-top-subactions" class="pull-right"></div>
+        </div>
+      </script>
+
+      <script type="text/html" id="NavbarActionCollectionView-template"></script>
+
+      <script type="text/html" id="NavbarToggleActionView-template">
+        <a id="nav-left-toggle" href="#toggle"><i class="fa fa-bars"></i></a>
+      </script>
+      <script type="text/html" id="NavbarSearchActionView-template">
+        <div id="searchbox"></div>
+      </script>
+
+
+      <script type="text/html" id="PanelLayout-template">
+        <header><%= title %></header>
+        <div class="panel-content"></div>
+      </script>
+
+      <script type="text/html" id="SearchboxView-template">
+        <input type="text" class="form-control searchbox pull-left" placeholder="<%= placeholder %>" value="<%= query %>">
+        <small class="searching-indicator text-muted"><i class="fa fa-cog fa-spin"></i> Searching</small>
+      </script>
+
+    </div>
+
+    <script src="./bower_components/jquery/jquery.min.js"></script>
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./bower_components/underscore/underscore.js"></script>
+    <script src="./bower_components/backbone/backbone.js"></script>
+    <script src="./bower_components/backbone.marionette/lib/backbone.marionette.min.js"></script>
+    <script src="./assets/app.js"></script>
+    <script src="./app/js/searchbox.js"></script>
+    <script src="./app/js/nav.js"></script>
+    <script src="./app/js/content.js"></script>
+    <script src="./app/js/panel.js"></script>
+    <script src="./assets/toggle.js"></script>
+    <script type="text/javascript">
+    App.go();
+    </script>
+  </body>
+</html>
