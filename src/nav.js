@@ -63,15 +63,18 @@ App.module("Navigation", function(module, App, Backbone, Marionette, $, _) {
 	var brand = null;
 	var brandIcon = null;
 
-	var items = new MenuItemCollection(App.data.navLeft.items);
+	var items = null;
 	var menu = null;
 
-	module.show = function() {
+	module.show = function(brand, navItems) {
 
+		items = new MenuItemCollection(navItems);
 		var layout = new NavLayout();
 
-		brand = new BrandView({model:new Backbone.Model(App.data.company)});
-		brandIcon = new BrandIconView({model:new Backbone.Model(App.data.company)});
+		var model = new Backbone.Model(brand);
+
+		brand = new BrandView({model:model});
+		brandIcon = new BrandIconView({model:model});
 		module.menu = menu = new MenuView({collection:items});
 
 		App.navRegion.show(layout);
