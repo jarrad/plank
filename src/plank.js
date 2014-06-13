@@ -18,19 +18,10 @@
 	};
 	
 	Plank.start = function(App) {
-
 		App.Navigation.show(_brand, _navItems);
 		Plank.layout = App.Content.show();
 		if (typeof _navItems !== 'undefined' && _navItems.length > 0) {
 			App.Navigation.activate(_navItems[0].id);
 		}
-
 	};
-
-
-
-
-
-
-
 })(window);
