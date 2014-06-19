@@ -1,0 +1,58 @@
+div.main-content {
+  background: #ecf0f1;
+  position: relative;
+}
+div.main-content > div.container-fluid > section {
+  margin-top: 70px;
+}
+div.main-content > div.container-fluid > section > h1 {
+  margin-top: 0;
+}
+li.notif {
+  position: relative;
+  line-height: 57px;
+  margin-right: 20px;
+  top: 5px;
+}
+li.notif > a {
+  color: #2c3e50;
+  border-radius: 50%;
+  height: 57px;
+  width: 57px;
+}
+li.notif > a > span.badge.pull-right {
+  position: relative;
+  top: -27px;
+  border-radius: 0;
+  background: #e74c3c;
+  left: 6px;
+}
+li.notif > a > i.fa {
+  font-size: 1.2em;
+  position: relative;
+  top: 3px;
+  left: 2px;
+}
+div#main-content {
+  padding-top: 70px;
+}
+@media (min-height: 768px) {
+  div#main-content {
+    min-height: 820px;
+  }
+}
+@media (min-height: 900px) {
+  div#main-content {
+    min-height: 900px;
+  }
+}
+@media (min-height: 1024px) {
+  div#main-content {
+    min-height: 1024px;
+  }
+}
+@media (min-width: 992px) {
+  div#main-content {
+    min-height: 1024px;
+  }
+}

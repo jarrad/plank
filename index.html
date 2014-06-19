@@ -11,7 +11,9 @@
     <title>Plank | Backbone+Bootstrap Dashboard</title>
     <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="./assets/style.css" rel="stylesheet">
+    <link href="./dist/content.css" rel="stylesheet">
+    <link href="./dist/nav.css" rel="stylesheet">
+    <link href="./dist/panel.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="./bower_components/html5shiv/dist/html5shiv.js"></script>
       <script src="./bower_components/respond/dest/respond.min.js"></script>
@@ -42,7 +44,7 @@
       </script>
 
       <script type="text/html" id="BrandView-template">
-        <a href="#home"><%= appName %></a>
+        <a class="brand" name="brand"><%= appName %></a>
       </script>
       <script type="text/html" id="BrandIconView-template">
         <i class="fa fa-<%= icon %> fa-fw"></i>
