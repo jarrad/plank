@@ -31,7 +31,7 @@
         <a href="<%= href %>" class="nav-left-item <%= active %>" data-target="<%= title %>">
           <i class="fa fa-<%= icon %> fa-fw"></i> 
           <span class="item"><%= title %></span>
-          <span class="badge pull-right"><%= badges %></span>
+          <span class="badge pull-right"><%= badge %></span>
         </a>
       </script>
 
@@ -98,11 +98,11 @@
     //App.go();
     Plank.brand({
       title: 'Plank',
-      icon: 'globe',
-      appName: 'Plank'  
+      icon: 'leaf',
+      appName: 'Plank<i class="fa fa-leaf"></i>'
     }).nav([
       { id: 'dashboard',   title: 'Dashboard',   href: '#!/dashboard', icon: 'home' },
-      { id: 'features',    title: 'Features',    href: '#!/features',  icon: 'suitcase', badges: 2 }  
+      { id: 'features',    title: 'Features',    href: '#!/features',  icon: 'suitcase', badge: 2 }  
     ]).start(App);
     </script>
   </body>

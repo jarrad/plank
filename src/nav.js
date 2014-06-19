@@ -53,7 +53,7 @@ App.module("Navigation", function(module, App, Backbone, Marionette, $, _) {
 	var MenuItem = Backbone.Model.extend({
 		defaults: {
 			active: false,
-			badges: '',
+			badge: '',
 		},
 	});
 	var MenuItemCollection = Backbone.Collection.extend({
