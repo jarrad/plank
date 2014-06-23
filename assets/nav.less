@@ -1,14 +1,20 @@
-
+@import "colors";
 
 @nav-left-width:240px;
 @nav-left-collapsed-icon-width:50px;
 
 
-@nav-left-background-color:#e74c3c;
-@nav-left-color:#ecf0f1;
+@nav-content-font-size:1.3em;
+@nav-content-height:57px;
+@nav-content-navbar-font-size:1.5em;
+
+
+@nav-avatar-height:40px;
+@nav-brand-height:58px;
+
 
 div.sticky { 
-	background:#2c3e50;
+	background:@nav-content-color;
 	color:@nav-left-color;
 	position:fixed;
 	height:100%; 
@@ -25,7 +31,7 @@ div.nav-left {
 		padding:2px 20px;
 		font-size:@brand-font-size;
 		font-weight:bold;
-		height:58px;
+		height:@nav-brand-height;
 		position:relative;
 		> div.brand {
 			a { 
@@ -74,6 +80,7 @@ body.nav-left-collapse {
 	}
 }
 
+
 div.nav-left-content { 
 	padding:0;
 	margin-bottom:50px; 
@@ -86,16 +93,13 @@ div.nav-left-content > ul.nav > li > a {
 	border-radius:0;
 	background:transparent;
 	color:#bdc3c7;
-	font-size:1.3em;
+	font-size:@nav-content-font-size;
 }
 div.nav-left-content > ul.nav > li.active > a { 
 	background:#1c2e40;
 	color:#1abc9c;
-	font-size:1.3em; 
+	font-size:@nav-content-font-size; 
 }
-
-@nav-content-height:57px;
-@nav-content-color:#2c3e50;
 
 div#nav-content > div.navbar { 
 	height:@nav-content-height;
@@ -109,9 +113,10 @@ div#nav-content > div.navbar {
 	left:0;
 	right:0;
 }
+
 div#nav-content > div.navbar > div.container-fluid { padding:0 10px 0 0; }
 div#nav-content > div.navbar > div.container-fluid > ul.nav > li > a { 
-	font-size:1.5em;
+	font-size:@nav-content-navbar-font-size;
 	line-height:@nav-content-height;
 	padding:0 15px;
 }
@@ -122,7 +127,7 @@ div#nav-top-actions > ul.nav > li.toggle > a {
 	border-right:1px solid @nav-left-color;
 	padding:0;
 	line-height:@nav-content-height;
-	font-size:1.5em;
+	font-size:@nav-content-navbar-font-size;
 }
 div#nav-top-actions > ul.nav > li.search { padding-top:11px;margin-left:20px; }
 div#nav-top-actions > ul.nav > li.search > div#searchbox > input { 
@@ -149,7 +154,15 @@ div#nav-content > div.navbar > div.container-fluid > div.pull-right > ul.navbar-
 }
 
 
-.avatar { float:left;margin-right:10px;width:40px;height:40px;overflow:hidden;border-radius:50%;margin-top:5px; }
+.avatar { 
+	float:left;
+	margin-right:10px;
+	width:@nav-avatar-height;
+	height:@nav-avatar-height;
+	overflow:hidden;
+	border-radius:50%;
+	margin-top:5px;
+}
 .avatar > img {  }
 
 .nav-profile-actions { border-left:1px solid @nav-left-color;padding-left:5px; }
