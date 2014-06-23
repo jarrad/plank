@@ -1,6 +1,6 @@
 App.module("Panel", function(module, App, Backbone, Marionette, $, _) {
 
-	var PanelInfo = App.LocalModel.extend({
+	var PanelInfo = Plank.LocalModel.extend({
 		defaults: {
 			title: 'Unset Title'
 		}

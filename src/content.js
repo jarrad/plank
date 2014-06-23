@@ -73,6 +73,7 @@ App.module("Content", function(module, App, Backbone, Marionette, $, _) {
 		contentLayout.nav.show(navLayout);
 		navLayout.actions.show(actions);
 
+		// yuck x_x
 		var $searchbox = $('#searchbox');
 		var searchbox = new App.Searchbox.SearchboxView({namespace: 'cases', el: $searchbox});
 		searchbox.render();

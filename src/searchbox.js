@@ -1,8 +1,7 @@
 
 App.module("Searchbox", function(module, App, Backbone, Marionette, $, _) {
 
-
-	var SearchboxSettings = module.SearchboxSettings = LocalModel.extend({
+	var SearchboxSettings = module.SearchboxSettings = Plank.LocalModel.extend({
 		defaults: {
 			placeholder: 'Search...',
 			query: ''

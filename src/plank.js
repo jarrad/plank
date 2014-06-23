@@ -1,7 +1,14 @@
 // Plank
 (function(root) {
 
-	var Plank = root.Plank = {};
+	var Plank = root.Plank = root.Plank || {};
+
+	var LocalModel = Plank.LocalModel = Backbone.Model.extend({
+		sync: function(method, model, optoins) {
+			return;
+		}
+	});
+
 
 	var _brand = {};
 
@@ -18,7 +25,16 @@
 	};
 	
 	Plank.start = function(App) {
-		App.Navigation.show(_brand, _navItems);
+		// create the plank App
+		Plank.App = App;
+		// add our layout regions
+		Plank.App.addRegions({
+		  "navRegion":      "#nav",
+  		"contentRegion":  "#content",
+		});
+
+
+		Plank.App.Navigation.show(_brand, _navItems);
 		Plank.layout = App.Content.show();
 		if (typeof _navItems !== 'undefined' && _navItems.length > 0) {
 			App.Navigation.activate(_navItems[0].id);
