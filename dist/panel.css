@@ -10,22 +10,3 @@ div.panel > header {
 div.panel > header > span.badge {
   background: #16a085;
 }
-div.panel > ul.case-status {
-  list-style: none;
-  margin-bottom: 20px;
-  padding: 10px 15px;
-  font-size: 1.2em;
-}
-div.panel > ul.case-status > li {
-  border-bottom: 1px dashed #ecf0f1;
-  font-weight: bold;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-div.panel > ul.case-status > li > span.status {
-  display: block;
-  font-size: .8em;
-  font-weight: normal;
-  color: #999;
-  margin-top: -3em;
-}
