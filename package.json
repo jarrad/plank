@@ -1,12 +1,26 @@
 {
-  "name" : "plank",
-  "description" : "Backbone+Bootstrap UI Toolkit",
-  "homepage" : "http://github.com/jarrad/plank",
-  "keywords" : ["Backbone", "UI", "toolkit", "Bootstrap"],
-  "author" : "jarrad giles <jarrad@jagcrete.com>",
-  "contributors" : [],
-  "dependencies" : { "less" : ">=1.7.1" },
-  "repository" : {"type": "git", "url": "git://github.com/jarrad/plank.git"},
-  "main" : "plank.js",
-  "version" : "0.1.0"
+  "name": "plank",
+  "description": "Backbone+Bootstrap UI Toolkit",
+  "homepage": "http://github.com/jarrad/plank",
+  "keywords": [
+    "Backbone",
+    "UI",
+    "toolkit",
+    "Bootstrap"
+  ],
+  "author": "jarrad giles <jarrad@gunsoutsoftware.com>",
+  "contributors": [],
+  "dependencies": {
+    "less": ">=1.7.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jarrad/plank.git"
+  },
+  "main": "plank.js",
+  "version": "0.1.0",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^11.0.0"
+  }
 }
