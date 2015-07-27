@@ -1,8 +1,8 @@
 
 App.module("Content", function(module, App, Backbone, Marionette, $, _) {
 
-	var NavbarHeaderLayout = Marionette.Layout.extend({
-		template: '#NavbarHeaderLayout-template',
+	var NavbarHeaderLayout = Marionette.LayoutView.extend({
+		template: _.template('<div class="container-fluid"><div id="nav-top-actions"></div><div id="nav-top-subactions" class="pull-right"></div></div>'),
 		className: 'navbar',
 		attributes: {
 			'role' : 'navigation'
@@ -33,8 +33,8 @@ App.module("Content", function(module, App, Backbone, Marionette, $, _) {
 	});
 
 	var navbarActions = new NavbarActionCollection([
-		{ className: 'toggle', template: '#NavbarToggleActionView-template' },
-		{ className: 'search', template: '#NavbarSearchActionView-template' }
+		{ className: 'toggle', template: _.template('<a id="nav-left-toggle" href="#toggle"><i class="fa fa-bars"></i></a>') },
+		{ className: 'search', template: _.template('<div id="searchbox"></div>') }
 	]);
 
 	var NavbarActionView = Marionette.ItemView.extend({
@@ -45,17 +45,17 @@ App.module("Content", function(module, App, Backbone, Marionette, $, _) {
 	});
 
 	var NavbarActionCollectionView = Marionette.CollectionView.extend({
-		itemView: NavbarActionView,
-		itemViewOptions: function(model,index) {
+		childView: NavbarActionView,
+		childViewOptions: function(model,index) {
 			return { template: model.get('template') }
 		},
-		template: '#NavbarActionCollectionView-template',
+		template: _.template(''),
 		tagName: 'ul',
 		className: 'nav navbar-nav'
 	});
 
-	var ContentLayout = Marionette.Layout.extend({
-		template: '#ContentLayout-template',
+	var ContentLayout = Marionette.LayoutView.extend({
+		template: _.template('<div id="nav-content"></div><div id="main-content" class="container-fluid"></div>'),
 		className: 'main-content',
 		regions: {
 			nav: '#nav-content',

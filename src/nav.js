@@ -1,8 +1,8 @@
 
 App.module("Navigation", function(module, App, Backbone, Marionette, $, _) {
 
-	var NavLayout = Marionette.Layout.extend({
-		template: '#NavLayout-template',
+	var NavLayout = Marionette.LayoutView.extend({
+		template: _.template('<div class="brand"></div><div class="brand-icon"></div><div class="nav-left-content"></div>'),
 		className: 'nav-left sticky hidden-sm hidden-xs',
 		regions: {
 			brand: '.brand',
@@ -12,12 +12,12 @@ App.module("Navigation", function(module, App, Backbone, Marionette, $, _) {
 	});
 
 	var BrandView = Marionette.ItemView.extend({
-		template: '#BrandView-template',
+		template: _.template('<a class="brand" name="brand"><%= appName %></a>'),
 		className: 'brand'
 	});
 
 	var BrandIconView = Marionette.ItemView.extend({
-		template: '#BrandIconView-template',
+		template: _.template('<i class="fa fa-<%= icon %> fa-fw"></i>'),
 		className: 'brand-icon'
 	});
 
@@ -27,7 +27,7 @@ App.module("Navigation", function(module, App, Backbone, Marionette, $, _) {
 			var active = this.model.get('active');
 			return active == true ? 'active' : '';
 		},
-		template: '#MenuItemView-template',
+		template: _.template('<a href="<%= href %>" class="nav-left-item <%= active %>" data-target="<%= title %>"><i class="fa fa-<%= icon %> fa-fw"></i><span class="item"><%= title %></span><span class="badge pull-right"><%= badge %></span></a>'),
 		initialize: function() {
 			this.listenTo(this.model, 'changed', this.render);
 		},
@@ -44,11 +44,13 @@ App.module("Navigation", function(module, App, Backbone, Marionette, $, _) {
 	});
 
 	var MenuView = Marionette.CollectionView.extend({
-		itemView: MenuItemView,
+		childView: MenuItemView,
 		template: '#MenuView-template',
 		tagName: 'ul',
 		className: 'nav nav-pills nav-stacked'
 	});
+
+	var Brand = Backbone.Model.extend({});	
 
 	var MenuItem = Backbone.Model.extend({
 		defaults: {
@@ -71,7 +73,10 @@ App.module("Navigation", function(module, App, Backbone, Marionette, $, _) {
 		items = new MenuItemCollection(navItems);
 		var layout = new NavLayout();
 
-		var model = new Backbone.Model(brand);
+		var model = new Brand(brand);
+		if (typeof model.get('appName') === 'undefined') {
+			model.set('appName', model.get('title'));
+		}
 
 		brand = new BrandView({model:model});
 		brandIcon = new BrandIconView({model:model});

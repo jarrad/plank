@@ -9,7 +9,6 @@
 		}
 	});
 
-
 	var _brand = {};
 
 	var _navItems = [];
@@ -32,7 +31,6 @@
 		  "navRegion":      "#nav",
   		"contentRegion":  "#content",
 		});
-
 
 		Plank.App.Navigation.show(_brand, _navItems);
 		Plank.layout = App.Content.show();

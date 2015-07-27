@@ -6,19 +6,20 @@ App.module("Panel", function(module, App, Backbone, Marionette, $, _) {
 		}
 	});
 
-	var PanelLayout = Marionette.Layout.extend({
-		template: '#PanelLayout-template',
+	var PanelLayout = Marionette.LayoutView.extend({
+		template: _.template('<header><%= title %></header><div class="panel-content"></div>'),
 		className: 'panel',
 		id: function() {
 			return 'panel-' + this.model.id;
 		},
 		regions: {
+			header: 'header',
 			content: '.panel-content'
 		}
 	});
 
-	module.newPanel = function(id, title) {
-		var model = new PanelInfo({id: id, title:title});
+	module.newPanel = function(id, title, content) {
+		var model = new PanelInfo({id: id, title:title, content: content});
 		var layout = new PanelLayout({model: model});
 		return layout;
 	};

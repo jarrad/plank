@@ -9,14 +9,15 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="./assets/favicon.ico">
     <title>Plank | Backbone+Bootstrap Dashboard</title>
-    <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./node_modules/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="./node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="./dist/content.css" rel="stylesheet">
     <link href="./dist/nav.css" rel="stylesheet">
     <link href="./dist/panel.css" rel="stylesheet">
     <!--[if lt IE 9]>
-      <script src="./bower_components/html5shiv/dist/html5shiv.js"></script>
-      <script src="./bower_components/respond/dest/respond.min.js"></script>
+      <script src="./node_modules/html5shiv/dist/html5shiv.js"></script>
+      <script src="./node_modules/respond/dest/respond.min.js"></script>
     <![endif]-->
   </head>
 
@@ -25,71 +26,11 @@
     <header id="nav"></header>
     <div id="content"></div>
 
-    <div id="bm-templates">
-
-      <!-- left nav -->
-
-      <script type="text/html" id="MenuItemView-template">
-        <a href="<%= href %>" class="nav-left-item <%= active %>" data-target="<%= title %>">
-          <i class="fa fa-<%= icon %> fa-fw"></i> 
-          <span class="item"><%= title %></span>
-          <span class="badge pull-right"><%= badge %></span>
-        </a>
-      </script>
-
-      <script type="text/html" id="NavLayout-template">
-        <div class="brand"></div>
-        <div class="brand-icon"></div>
-        <div class="nav-left-content"></div>
-      </script>
-
-      <script type="text/html" id="BrandView-template">
-        <a class="brand" name="brand"><%= appName %></a>
-      </script>
-      <script type="text/html" id="BrandIconView-template">
-        <i class="fa fa-<%= icon %> fa-fw"></i>
-      </script>
-
-      <!-- content -->
-      <script type="text/html" id="ContentLayout-template">
-        <div id="nav-content"></div>
-        <div id="main-content" class="container-fluid"></div>
-      </script>
-
-      <script type="text/html" id="NavbarHeaderLayout-template">
-        <div class="container-fluid">
-          <div id="nav-top-actions"></div>
-          <div id="nav-top-subactions" class="pull-right"></div>
-        </div>
-      </script>
-
-      <script type="text/html" id="NavbarActionCollectionView-template"></script>
-
-      <script type="text/html" id="NavbarToggleActionView-template">
-        <a id="nav-left-toggle" href="#toggle"><i class="fa fa-bars"></i></a>
-      </script>
-      <script type="text/html" id="NavbarSearchActionView-template">
-        <div id="searchbox"></div>
-      </script>
-
-
-      <script type="text/html" id="PanelLayout-template">
-        <header><%= title %></header>
-        <div class="panel-content"></div>
-      </script>
-
-      <script type="text/html" id="SearchboxView-template">
-        <input type="text" class="form-control searchbox pull-left" placeholder="<%= placeholder %>" value="<%= query %>">
-        <small class="searching-indicator text-muted"><i class="fa fa-cog fa-spin"></i> Searching</small>
-      </script>
-
-    </div>
-
-    <script src="./bower_components/jquery/jquery.min.js"></script>
-    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./bower_components/underscore/underscore.js"></script>
-    <script src="./bower_components/backbone/backbone.js"></script>
-    <script src="./bower_components/backbone.marionette/lib/backbone.marionette.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/underscore/underscore.js"></script>
+    <script src="./node_modules/backbone/backbone.js"></script>
+    <script src="./node_modules/backbone.marionette/lib/backbone.marionette.js"></script>
     <script src="./dist/app.js"></script>
     <script src="./src/plank.js"></script>
     <script src="./src/searchbox.js"></script>

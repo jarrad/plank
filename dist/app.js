@@ -8,4 +8,6 @@ App.vent.on('menu:activated:dashboard', function() {
 App.vent.on('menu:activated:features', function() {
 	var panel = App.Panel.newPanel('features', 'Plank Features');
 	Plank.layout.content.show(panel);
+  var view = new Backbone.Marionette.ItemView({template: _.template('<p>So many features')});
+  panel.content.show(view);
 });

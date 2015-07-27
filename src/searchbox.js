@@ -9,7 +9,7 @@ App.module("Searchbox", function(module, App, Backbone, Marionette, $, _) {
 	});
 
 	var SearchboxView = module.SearchboxView = Marionette.ItemView.extend({
-		template: '#SearchboxView-template',
+		template: _.template('<input type="text" class="form-control searchbox pull-left" placeholder="<%= placeholder %>" value="<%= query %>"><small class="searching-indicator text-muted"><i class="fa fa-cog fa-spin"></i> Searching</small>'),
 		className: 'searchbox',
 		ui: {
 			'searchbox' : 'input.searchbox'

@@ -37,6 +37,7 @@ div.nav-left a.list-group-item.active > .badge,
   color: #ecf0f1;
   background-color: #e74c3c;
 }
+div.nav-left ul.nav-pills > li > a > span.badge.pull-right:not(:empty) { display:inline-block;margin-top: 4px; }
 body.nav-left-collapse > header#nav > div.nav-left {
   width: 50px;
 }
