@@ -6,10 +6,9 @@ var _          = Plank._          = require('underscore');
 var Backbone   = Plank.Backbone   = require('backbone');
 var Marionette = Plank.Marionette = require('backbone.marionette');
 
-Plank.LocalModel = require('./localModel');
 Plank.Navigation = require('./nav');
 Plank.Content    = require('./content');
-Plank.Panel      = require('./panel');
+Plank.newPanel   = require('./panel').newPanel;
 Plank.Events     = require('./events');
 
 Plank.template   = _.template;

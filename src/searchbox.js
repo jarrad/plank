@@ -4,9 +4,10 @@ var Marionette = require('backbone.marionette');
 var $ = Backbone.$;
 var Plank = global.Plank;
 
+var LocalModel = require('./localModel');
 var Events = require('./events');
 
-var SearchboxSettings = Plank.LocalModel.extend({
+var SearchboxSettings = LocalModel.extend({
 	defaults: {
 		placeholder: 'Search...',
 		query: ''
