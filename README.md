@@ -4,7 +4,10 @@ plank
 plank is a backbone + bootstrap UI toolkit
 
 Example:
-
+    <!-- include plank.js -->
+    <script src="./dist/plank.js"></script>
+    <!-- build a Marionette Application object... -->
+    <!-- then use Plank -->
     Plank.brand({
       title: 'Plank',
       icon: 'leaf',

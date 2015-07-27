@@ -25,6 +25,7 @@
     "http-server": "^0.8.0"
   },
   "scripts": {
-    "local" : "http-server -p 5000"
+    "local" : "http-server -p 5000",
+    "build" : "browserify src/api.js -o dist/plank.js"
   }
 }

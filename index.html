@@ -26,17 +26,8 @@
     <header id="nav"></header>
     <div id="content"></div>
 
-    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./node_modules/underscore/underscore.js"></script>
-    <script src="./node_modules/backbone/backbone.js"></script>
-    <script src="./node_modules/backbone.marionette/lib/backbone.marionette.js"></script>
-    <script src="./dist/app.js"></script>
-    <script src="./src/plank.js"></script>
-    <script src="./src/searchbox.js"></script>
-    <script src="./src/nav.js"></script>
-    <script src="./src/content.js"></script>
-    <script src="./src/panel.js"></script>
+    <script src="./dist/plank.js"></script>
+    <script src="./example/app.js"></script>
     <script type="text/javascript">
     //App.go();
     Plank.brand({
@@ -44,7 +35,7 @@
       icon: 'leaf',
       appName: 'Plank<i class="fa fa-leaf"></i>'
     }).nav([
-      { id: 'dashboard',   title: 'Dashboard',   href: '#!/dashboard', icon: 'home' },
+      { id: 'dashboard',   title: 'Release Notes',   href: '#!/dashboard', icon: 'home' },
       { id: 'features',    title: 'Features',    href: '#!/features',  icon: 'suitcase', badge: 2 }  
     ]).start(App);
     </script>
