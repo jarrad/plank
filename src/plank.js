@@ -13,6 +13,8 @@
 
 	var _navItems = [];
 
+	var _navbarActions = [];
+
 	Plank.brand = function(options) {
 		_brand = options;
 		return Plank;
@@ -20,6 +22,11 @@
 
 	Plank.nav = function(navItems) {
 		_navItems = navItems;
+		return Plank;
+	};
+
+	Plank.navbar = function(actions) {
+		_navbarActions = actions;
 		return Plank;
 	};
 	
@@ -33,7 +40,7 @@
 		});
 
 		Plank.App.Navigation.show(_brand, _navItems);
-		Plank.layout = App.Content.show();
+		Plank.layout = App.Content.show(_navbarActions);
 		if (typeof _navItems !== 'undefined' && _navItems.length > 0) {
 			App.Navigation.activate(_navItems[0].id);
 		}

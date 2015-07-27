@@ -102,6 +102,12 @@ div#nav-content > div.navbar > div.container-fluid > ul.nav > li > a {
   line-height: 57px;
   padding: 0 15px;
 }
+div#nav-top-actions > ul.nav > li.toggle > a:focus, div#nav-top-actions > ul.nav > li.toggle > a:hover {
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  color: #7f8c8d;
+}
 div#nav-top-actions > ul.nav > li.toggle > a {
   width: 57px;
   text-align: center;

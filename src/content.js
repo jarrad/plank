@@ -63,7 +63,9 @@ App.module("Content", function(module, App, Backbone, Marionette, $, _) {
 		}
 	});
 
-	module.show = function() {
+	module.show = function(actions) {
+
+		actions = actions || navbarActions;
 
 		var contentLayout = new ContentLayout();
 		var navLayout = new NavbarHeaderLayout();
