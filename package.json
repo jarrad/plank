@@ -22,10 +22,20 @@
   "license": "MIT",
   "devDependencies": {
     "browserify": "^11.0.0",
+    "clean-css": "^3.3.6",
     "http-server": "^0.8.0"
   },
   "scripts": {
-    "local" : "http-server -p 5000",
-    "build" : "browserify src/api.js -o dist/plank.js"
-  }
+    "local": "http-server -p 5000",
+    "prebuild:css": "mkdir -p dist/fonts && cp node_modules/font-awesome/fonts/* dist/fonts/ && cat node_modules/bootstrap/dist/css/*.min.css node_modules/font-awesome/css/font-awesome.min.css | cleancss -o dist/plank-libs.css",
+    "build:css": "mkdir -p dist/css && cat dist/plank-libs.css css/* | cleancss -o dist/css/plank.css",
+    "build:js": "browserify src/api.js -o dist/plank.js",
+    "build": "npm run build:css && npm run build:js"
+  },
+  "files": [
+    "dist/plank.js",
+    "dist/css",
+    "dist/lib",
+    "LICENSE"
+  ]
 }

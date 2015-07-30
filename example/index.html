@@ -7,14 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="./assets/favicon.ico">
     <title>Plank | Backbone+Bootstrap Dashboard</title>
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./node_modules/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="./node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="./dist/content.css" rel="stylesheet">
-    <link href="./dist/nav.css" rel="stylesheet">
-    <link href="./dist/panel.css" rel="stylesheet">
+    <link href="../dist/css/plank.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="./node_modules/html5shiv/dist/html5shiv.js"></script>
       <script src="./node_modules/respond/dest/respond.min.js"></script>
@@ -26,8 +20,16 @@
     <header id="nav"></header>
     <div id="content"></div>
 
-    <script src="./dist/plank.js"></script>
-    <script src="./example/app.js"></script>
+    <div class="template hide">
+
+      <script type="text/html" id="Row">
+
+      </script>
+
+    </div>
+
+    <script src="../dist/plank.js"></script>
+    <script src="./app.js"></script>
     <script type="text/javascript">
     //App.go();
     Plank.brand({
