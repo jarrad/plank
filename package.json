@@ -24,7 +24,7 @@
     "url": "git://github.com/jarrad/plank.git"
   },
   "main": "plank.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "devDependencies": {
     "browserify": "^11.0.0",
@@ -41,6 +41,7 @@
   "files": [
     "dist/plank.js",
     "dist/css",
+    "dist/fonts",
     "dist/lib",
     "LICENSE"
   ]
