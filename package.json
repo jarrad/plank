@@ -11,7 +11,13 @@
   "author": "jarrad giles <jarrad@gunsoutsoftware.com>",
   "contributors": [],
   "dependencies": {
-    "less": ">=1.7.1"
+    "backbone": "^1.2.1",
+    "backbone.marionette": "^2.4.2",
+    "bootstrap": "^3.3.5",
+    "font-awesome": "^4.4.0",
+    "jquery": "^2.1.4",
+    "less": ">=1.7.1",
+    "underscore": "^1.8.3"
   },
   "repository": {
     "type": "git",
