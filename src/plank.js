@@ -2,6 +2,7 @@
 // Plank
 var Plank = global.Plank = {};
 
+var jQuery     = global.jQuery = Plank.$      = require('jquery');
 var _          = Plank._          = require('underscore');
 var Backbone   = Plank.Backbone   = require('backbone');
 var Marionette = Plank.Marionette = require('backbone.marionette');
