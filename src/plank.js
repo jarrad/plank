@@ -8,7 +8,7 @@ var Marionette = Plank.Marionette = require('backbone.marionette');
 
 Plank.Navigation  = require('./nav');
 Plank.Content     = require('./content');
-Plank.newPanel    = require('./panel').newPanel;
+Plank.createPanel = require('./panel').newPanel;
 Plank.Events      = require('./events');
 Plank.createTable = require('./table');
 
@@ -45,7 +45,7 @@ Plank.start = function(App) {
 	Plank.Events.on('menu:toggleCollapse', Plank.Navigation.toggleCollapse);
 
 	Plank.Navigation.show(_brand, _navItems);
-	Plank.layout = Plank.Content.show(_navbarActions);
+	Plank.content = Plank.Content.show(_navbarActions).content;
 	if (typeof _navItems !== 'undefined' && _navItems.length > 0) {
 		Plank.Navigation.activate(_navItems[0].id);
 	}
