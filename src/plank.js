@@ -5,6 +5,7 @@ var Plank = global.Plank = {};
 var _          = Plank._          = require('underscore');
 var Backbone   = Plank.Backbone   = require('backbone');
 var Marionette = Plank.Marionette = require('backbone.marionette');
+var Bootstrap  = Plank.Bootstrap  = require('bootstrap');
 
 Plank.Navigation  = require('./nav');
 Plank.Content     = require('./content');
