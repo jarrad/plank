@@ -20,12 +20,19 @@ var RowView = Marionette.ItemView.extend({
   templateHelpers: {
     renderType: function(property, type) {
       var val = this[property];
-      if (typeof val === 'undefined') {
+      console.log(type);
+      console.log(val); 
+      if ('boolean' === type) {
+        return '<label><input type="checkbox" value="' + this[property] + '"' + (this[property] ? ' checked' : '') + '></label>';
+      } else if (typeof val === 'undefined') {
         return '';
       } else if ('label' === type) {
         return '<span class="label label-default">' + this[property] + '</span>';
       } else if ('badge' === type) {
         return '<span class="badge">' + this[property] + '</span>';
+      } else if ('datetime' === type) {
+        var date = new Date(this[property]);
+        return '<span class="datetime">' + date + '</span>';
       }
       return this[property];
     }
