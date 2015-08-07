@@ -3,6 +3,17 @@ var App = new Backbone.Marionette.Application();
 App.vent.on('menu:activated:dashboard', function() {
 	var panel = Plank.createPanel('plank-release-notes', 'Release Notes');
 	Plank.content.show(panel);
+
+
+  var menu = Plank.createButtonMenu('Hello World', 'primary', [
+
+    {href: '#!/greettings', title: 'Greetings!'},
+    {href: '#!/delete', title: 'Delete'}
+
+  ]);
+
+  panel.content.show(menu);
+
 });
 
 App.vent.on('menu:activated:features', function() {
