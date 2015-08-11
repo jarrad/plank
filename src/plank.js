@@ -8,11 +8,12 @@ var Backbone   = Plank.Backbone   = require('backbone');
 var Marionette = Plank.Marionette = require('backbone.marionette');
 var Bootstrap  = Plank.Bootstrap  = require('bootstrap');
 
-Plank.Navigation  = require('./nav');
-Plank.Content     = require('./content');
-Plank.createPanel = require('./panel').newPanel;
-Plank.Events      = require('./events');
-Plank.createTable = require('./table');
+Plank.Navigation       = require('./nav');
+Plank.Content          = require('./content');
+Plank.createPanel      = require('./panel').newPanel;
+Plank.Events           = require('./events');
+Plank.createTable      = require('./table');
+Plank.createButtonMenu = require('./buttonMenu');
 
 Plank.template   = _.template;
 
