@@ -5,6 +5,10 @@ plank is a backbone + bootstrap UI toolkit
 
 Example:
 
+    # minimum html
+    <header id="nav"></header>
+    <div id="content"></div>
+
     # include plank.js
     <script src="./dist/plank.js"></script>
     # build a Marionette Application object...
