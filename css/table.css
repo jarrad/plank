@@ -1,3 +1,7 @@
 table td[data-type=boolean] {
   width: 1em;
 }
+
+table [data-type=badge], table [data-type=label] {
+  text-align:center;
+}

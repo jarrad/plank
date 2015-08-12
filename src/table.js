@@ -39,7 +39,7 @@ var RowView = Marionette.ItemView.extend({
   }
 });
 
-var header = '<th class="property-<%= property %>"><%= header %></th>';
+var header = '<th class="property-<%= property %>" data-type="<%= type %>"><%= header %></th>';
 
 var generateTemplates = function(definitions, model) {
   var headerTemplate = _.reduce(definitions, function(memo, value, index, list) {
