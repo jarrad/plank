@@ -1,18 +1,89 @@
 var App = new Backbone.Marionette.Application();
 
 App.vent.on('menu:activated:dashboard', function() {
+
+  var layout = new Backbone.Marionette.LayoutView({
+    className: 'dashboard layout',
+    template: Plank.template('<div id="widgets"><div class="col-xs-4" id="widget-monkeys"></div><div class="col-xs-4" id="widget-visits"></div><div class="col-xs-4" id="widget-toast"></div></div><div id="panels"></div>'),
+    regions: {
+      panels: '#panels',
+      widgets: '#widgets',
+      monkeys: '#widget-monkeys',
+      visits: '#widget-visits',
+      toast: '#widget-toast'
+    }
+  });
+  Plank.content.show(layout);
+
 	var panel = Plank.createPanel('plank-release-notes', 'Release Notes');
-	Plank.content.show(panel);
-
-
+  layout.panels.show(panel);
   var menu = Plank.createButtonMenu('Hello World', 'primary', [
-
     {href: '#!/greettings', title: 'Greetings!'},
     {href: '#!/delete', title: 'Delete'}
-
   ]);
-
   panel.content.show(menu);
+
+  var widgets = Plank.Widget.createWidgetRow([{
+    icon: 'qq',
+    data: {
+      headline: {
+        label: 'NEW MONKEYS',
+        value: '375'
+      },
+      details: [
+        {
+          label: 'Bananas',
+          value: '417'
+        },
+        {
+          label: 'Banana/Monkey',
+          value: '1.112'
+        }
+      ]
+    },
+    variation: 'default'
+  },
+  {
+    icon: 'globe',
+    data: {
+      headline: {
+        label: 'TOTAL VISITS',
+        value: '375,193,392'
+      },
+      details: [
+        {
+          label: 'Registrations',
+          value: '417,188'
+        },
+        {
+          label: 'Bounce Rate',
+          value: '19.45%'
+        }
+      ]
+    },
+    variation: 'orange'
+  },
+  {
+    icon: 'cutlery',
+    data: {
+      headline: {
+        label: 'TOTAL TOAST ORDERS',
+        value: '8,910'
+      },
+      details: [
+        {
+          label: 'Rye',
+          value: '21.78%'
+        },
+        {
+          label: 'Buttered',
+          value: '91.54%'
+        }
+      ]
+    },
+    variation: 'blue'
+  }]);
+  layout.widgets.show(widgets);
 
 });
 

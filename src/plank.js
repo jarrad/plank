@@ -14,6 +14,9 @@ Plank.createPanel      = require('./panel').newPanel;
 Plank.Events           = require('./events');
 Plank.createTable      = require('./table');
 Plank.createButtonMenu = require('./buttonMenu');
+Plank.Widget           = require('./widget');
+
+Plank.createWidget     = Plank.Widget.create;
 
 Plank.template   = _.template;
 
