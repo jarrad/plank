@@ -14,27 +14,75 @@ var RowInfo = LocalModel.extend({
   }
 });
 
+var TableCellRenderer = function(options) {
+  this.type = options.type;
+  this.render = options.render;
+};
+
+var defaultRenderer = new TableCellRenderer({
+  type: 'default', 
+  render: function(model, property) {
+    return model[property];
+  }
+});
+
+Table.addRenderer = function(renderer) {
+  if (!(renderer instanceof TableCellRenderer)) {
+    return;
+  }
+  renderers[renderer.type] = renderer;
+};
+
+Table.rendererForType = function(type) {
+  var renderer = renderers[type];
+  if (typeof renderer === 'undefined' || renderer === null) {
+    return defaultRenderer;
+  }
+  return renderer;
+};
+
+var renderers = {
+
+  'boolean': new TableCellRenderer({
+    type: 'boolean',
+    render: function(model, property) {
+      return '<label><input type="checkbox" value="' + model[property] + '"' + (model[property] ? ' checked' : '') + '></label>';
+    }
+  }),
+  'label': new TableCellRenderer({
+    type: 'label',
+    render: function(model, property) {
+      return '<span class="label label-default">' + model[property] + '</span>';
+    }
+  }),
+  'badge': new TableCellRenderer({
+    type: 'badge',
+    render: function(model, property) {
+      return '<span class="badge">' + model[property] + '</span>';
+    }
+  }),
+  'datetime': new TableCellRenderer({
+    type: 'datetime',
+    render: function(model, property) {
+      var date = new Date(model[property]);
+      return '<span class="datetime">' + date + '</span>';
+    }
+  }),
+
+
+};
+
 var RowView = Marionette.ItemView.extend({
   tagName: "tr",
   template: _.template('<td>you need a row template</td>'),
   templateHelpers: {
     renderType: function(property, type) {
       var val = this[property];
-      console.log(type);
-      console.log(val); 
-      if ('boolean' === type) {
-        return '<label><input type="checkbox" value="' + this[property] + '"' + (this[property] ? ' checked' : '') + '></label>';
-      } else if (typeof val === 'undefined') {
+      if (typeof val === 'undefined') {
         return '';
-      } else if ('label' === type) {
-        return '<span class="label label-default">' + this[property] + '</span>';
-      } else if ('badge' === type) {
-        return '<span class="badge">' + this[property] + '</span>';
-      } else if ('datetime' === type) {
-        var date = new Date(this[property]);
-        return '<span class="datetime">' + date + '</span>';
       }
-      return this[property];
+      var renderer = Table.rendererForType(type);
+      return renderer.render(this, property);
     }
   }
 });
