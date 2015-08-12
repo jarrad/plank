@@ -32,7 +32,7 @@ App.vent.on('menu:activated:features', function() {
       ],
       new Backbone.Collection([
         {id: 1, msg: 'Hi',  label: 'greeting', count: 2, created_date: 1438384178000},
-        {id: 2, msg: 'Bye', label: 'greeting'},
+        {id: 2, msg: 'Bye', label: ['greeting', 'salutation']},
         {id: 3, msg: 'Oi',  label: 'greeting'}
       ])
     )

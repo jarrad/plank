@@ -1,0 +1,7 @@
+span.label[data-label=greeting] {
+  background:#12cc34;
+}
+
+span.label[data-label=salutation] {
+  background:#cc1234;
+}

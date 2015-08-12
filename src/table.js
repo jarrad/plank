@@ -52,7 +52,17 @@ var renderers = {
   'label': new TableCellRenderer({
     type: 'label',
     render: function(model, property) {
-      return '<span class="label label-default">' + model[property] + '</span>';
+      var value = model[property];
+      if (!(value instanceof Array)) {
+        value = [model[property]];
+      }
+      var labels = [];
+
+      _.each(value, function(val, index, list) {
+        labels.push('<span class="label label-default" data-label="' + val + '">' + val + '</span>');
+      });
+
+      return labels.join(' ');
     }
   }),
   'badge': new TableCellRenderer({
@@ -67,7 +77,7 @@ var renderers = {
       var date = new Date(model[property]);
       return '<span class="datetime">' + date + '</span>';
     }
-  }),
+  })
 
 
 };
@@ -87,7 +97,7 @@ var RowView = Marionette.ItemView.extend({
   }
 });
 
-var header = '<th class="property-<%= property %>" data-type="<%= type %>"><%= header %></th>';
+var header = '<th class="property-<%= property %>" data-property="<%= property %>" data-type="<%= type %>"><%= header %></th>';
 
 var generateTemplates = function(definitions, model) {
   var headerTemplate = _.reduce(definitions, function(memo, value, index, list) {
