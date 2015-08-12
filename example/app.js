@@ -27,13 +27,13 @@ App.vent.on('menu:activated:features', function() {
         {header: 'Id',        property: 'id',           type: 'id'},
         {header: 'Message',   property: 'msg',          type: 'id'},
         {header: 'Labels',    property: 'label',        type: 'label'},
-        {header: 'Processed', property: 'count',        type: 'badge'},
+        {header: 'Badges',    property: 'count',        type: 'badge'},
         {header: 'Since',     property: 'created_date', type: 'datetime'}
       ],
       new Backbone.Collection([
-        {id: 1, msg: 'Hi', label: 'greeting', count: 2, created_date: 1438384178000},
+        {id: 1, msg: 'Hi',  label: 'greeting', count: 2, created_date: 1438384178000},
         {id: 2, msg: 'Bye', label: 'greeting'},
-        {id: 3, msg: 'Oi', label: 'greeting'}      
+        {id: 3, msg: 'Oi',  label: 'greeting'}
       ])
     )
   );

@@ -19,13 +19,17 @@ var PanelLayout = Marionette.LayoutView.extend({
 	regions: {
 		header: 'header',
 		content: '.panel-content'
+	},
+	onShow: function() {
+		if (typeof this.options.contentView !== 'undefined' && this.options.contentView != null) {
+			this.content.show(this.options.contentView);
+		}		
 	}
 });
 
-Panel.newPanel = function(id, title, content) {
-	var model = new PanelInfo({id: id, title:title, content: content});
-	var layout = new PanelLayout({model: model});
-	return layout;
+Panel.newPanel = function(id, title, contentView) {
+	var model = new PanelInfo({id: id, title:title});
+	return new PanelLayout({model: model, contentView: contentView});
 };
 
 module.exports = Panel;
