@@ -111,17 +111,36 @@ var generateTemplates = function(definitions, model) {
   model.set('cellTemplate', cellTemplate);
 };
 
+var NoDataView = Marionette.ItemView.extend({
+  tagName: 'tr',
+  template: _.template('<td colspan="<%= cellCount %>" class="empty-view"><h2><%= message %></h2></td>'),
+  templateHelpers: {
+    renderType: function() {
+      return '';
+    }
+  }
+});
+
 var TableView = Marionette.CompositeView.extend({
   tagName: 'table',
   className: 'table',
+  emptyView: NoDataView,
   childView: RowView,
   childViewContainer: 'tbody',
   template: _.template('<thead><tr></tr></thead><tbody></tbody><tfoot></tfoot>'),
   initialize: function(options) {
     this.model = this.model || new LocalModel();
     generateTemplates(options.definitions, this.model);
-    this.childViewOptions = {
-      template: _.template(this.model.get('cellTemplate'))
+    console.log(this.model.get('cellTemplate'));
+    this.childViewOptions = function (model, index) {
+      if (this.collection.isEmpty()) {
+        return {
+          model: new Backbone.Model({cellCount: options.definitions.length, message: options.emptyMessage || 'No data found'})
+        };
+      }
+      return {
+        template: _.template(this.model.get('cellTemplate'))
+      };
     };
   },
   onShow: function() {

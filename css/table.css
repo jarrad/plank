@@ -5,3 +5,6 @@ table td[data-type=boolean] {
 table [data-type=badge], table [data-type=label] {
   text-align:center;
 }
+table td.empty-view {
+  text-align:center;
+}

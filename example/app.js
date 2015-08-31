@@ -4,7 +4,7 @@ App.vent.on('menu:activated:dashboard', function() {
 
   var layout = new Backbone.Marionette.LayoutView({
     className: 'dashboard layout',
-    template: Plank.template('<div id="widgets"><div class="col-xs-4" id="widget-monkeys"></div><div class="col-xs-4" id="widget-visits"></div><div class="col-xs-4" id="widget-toast"></div></div><div id="panels"></div>'),
+    template: Plank.template('<div id="widgets"></div><div id="panels"></div>'),
     regions: {
       panels: '#panels',
       widgets: '#widgets',
@@ -15,13 +15,38 @@ App.vent.on('menu:activated:dashboard', function() {
   });
   Plank.content.show(layout);
 
-	var panel = Plank.createPanel('plank-release-notes', 'Release Notes');
+	var panel = Plank.createPanel('components', 'Components');
   layout.panels.show(panel);
-  var menu = Plank.createButtonMenu('Hello World', 'primary', [
+
+  var panelLayout = new Backbone.Marionette.LayoutView({
+    template: Plank.template('<div id="dropdown"></div><div class="table-example"></div>'),
+    regions: {
+      dropdown: '#dropdown',
+      table: '.table-example'
+    }
+  });
+  panel.content.show(panelLayout);
+
+  var menu = Plank.createButtonMenu('Actions', 'primary', [
     {href: '#!/greettings', title: 'Greetings!'},
     {href: '#!/delete', title: 'Delete'}
   ]);
-  panel.content.show(menu);
+
+  panelLayout.dropdown.show(menu);
+
+  panelLayout.table.show(
+    Plank.createTable(
+      [
+        {header: '',          property: 'selected',     type: 'boolean'},
+        {header: 'Id',        property: 'id',           type: 'id'},
+        {header: 'Message',   property: 'msg',          type: 'id'},
+        {header: 'Labels',    property: 'label',        type: 'label'},
+        {header: 'Badges',    property: 'count',        type: 'badge'},
+        {header: 'Since',     property: 'created_date', type: 'datetime'}
+      ],
+      new Backbone.Collection([])
+    )
+  );
 
   var widgets = Plank.Widget.createWidgetRow([{
     icon: 'qq',
@@ -93,7 +118,7 @@ App.vent.on('menu:activated:features', function() {
 
   panel.content.show(
     Plank.createTable(
-    [
+      [
         {header: '',          property: 'selected',     type: 'boolean'},
         {header: 'Id',        property: 'id',           type: 'id'},
         {header: 'Message',   property: 'msg',          type: 'id'},
